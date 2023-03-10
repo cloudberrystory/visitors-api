@@ -10,6 +10,7 @@ services:
     working_dir: /app
     environment:
       WEB_DOCUMENT_INDEX: "public/index.php"
+    user: application
   redis:
     image: redis:7.0.9-alpine
     volumes:
