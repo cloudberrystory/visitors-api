@@ -5,7 +5,7 @@ namespace App\Actions;
 
 use App\Storages\CounterStorage;
 
-class UpdateStatisticsAction
+class AddVisitFromCountryAction
 {
 
     public function __construct(

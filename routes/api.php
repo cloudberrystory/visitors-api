@@ -2,7 +2,9 @@
 
 /** @var \Laravel\Lumen\Routing\Router $router */
 
-$router->group(['prefix' => 'statistics'], function () use ($router) {
-    $router->get('', 'StatisticsController@getStatistics');
-    $router->put('', 'StatisticsController@updateStatistics');
+$router->group(['prefix' => 'visits'], function () use ($router) {
+    $router->group(['prefix' => 'countries'], function () use ($router) {
+        $router->get('', 'StatisticsController@getVisitsByCountries');
+        $router->post('', 'StatisticsController@addVisitFromCountry');
+    });
 });

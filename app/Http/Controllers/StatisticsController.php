@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Actions\GetStatisticsAction;
-use App\Actions\UpdateStatisticsAction;
+use App\Actions\GetVisitsByCountriesAction;
+use App\Actions\AddVisitFromCountryAction;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
@@ -14,11 +14,11 @@ class StatisticsController extends Controller
     /**
      * Возвращает JSON-объект вида: { код страны: количество посещений, cy: 123, us: 456, ... }
      *
-     * @param  GetStatisticsAction  $action
+     * @param  GetVisitsByCountriesAction  $action
      *
      * @return JsonResponse
      */
-    public function getStatistics(GetStatisticsAction $action): JsonResponse
+    public function getVisitsByCountries(GetVisitsByCountriesAction $action): JsonResponse
     {
         $statistics = $action->handle();
 
@@ -29,12 +29,12 @@ class StatisticsController extends Controller
      * Обновление статистики, принимает один аргумент – код страны (ru, us, it...).
      *
      * @param  Request  $request
-     * @param  UpdateStatisticsAction  $action
+     * @param  AddVisitFromCountryAction  $action
      *
      * @return JsonResponse
      * @throws \Illuminate\Validation\ValidationException
      */
-    public function updateStatistics(Request $request, UpdateStatisticsAction $action): JsonResponse
+    public function addVisitFromCountry(Request $request, AddVisitFromCountryAction $action): JsonResponse
     {
         $this->validate($request, [
             'country_code' => [
