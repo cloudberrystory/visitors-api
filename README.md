@@ -8,9 +8,6 @@ docker-compose up -d
 docker-compose exec php bash -c "composer install"
 ```
 
-## Endpoints
+## Docs
 
-`GET /visits/countries` - get list of all visits by countries.
-
-`POST /visits/countries` - increment a visit from specific country.
-`country_code` is required body param.
+Access API documentation via https://documenter.getpostman.com/view/7931699/2s93Jrx5bk
